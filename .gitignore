@@ -1,0 +1,6 @@
+*.qgz
+*.qmd
+*.tiff
+*.gpkg*
+*.dbb
+.DS_Store

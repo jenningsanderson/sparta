@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "waterline_over_murray",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 14, "id": "0872792656ffffff046ed09f1f060771", "primary": null, "sources": [ { "property": "", "dataset": "OpenStreetMap", "record_id": "w508496802@3", "update_time": "2025-02-01T15:16:45Z", "confidence": null }, { "property": "", "dataset": "OpenStreetMap", "record_id": "w508496803@2", "update_time": "2025-02-01T15:16:45Z", "confidence": null } ], "subtype": "road", "class": "path" }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -112.047365550100764, 46.578913385395957 ], [ -112.0474126, 46.5788645 ], [ -112.0475735, 46.5788055 ], [ -112.0481341, 46.5785972 ], [ -112.0482253, 46.5784663 ], [ -112.048287, 46.5780976 ], [ -112.0486089, 46.5778929 ], [ -112.048510810330114, 46.577471433410274 ] ], [ [ -112.049026655620366, 46.576113927556882 ], [ -112.0490326, 46.5761008 ], [ -112.049274, 46.5757929 ], [ -112.049443, 46.575485 ], [ -112.049317, 46.5752546 ], [ -112.0493196, 46.5750923 ], [ -112.049377374100416, 46.574848356361599 ] ] ] } }
+]
+}

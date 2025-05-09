@@ -21,14 +21,105 @@ map.on('style.load', function(){
       "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=lKNWNcFzZ8CaRdTSSYvy",
     });
 
-    map.setTerrain({source: 'maptiler3D', exaggeration: 1.3});
+    // Turn on Terrain
+    map.setTerrain({source: 'maptiler3D', exaggeration: 1.1});
 
-// // Terrain Control
-// map.addControl(
-//     new maplibregl.TerrainControl({
-//         source: 'maptiler3D',
-//         exaggeration: 1
-//     })
-// );
+    // Add all of our GeoJSON Sources
+    map.addSource("federal", {
+        "type": "geojson",
+        "data": "data/federal_land.geojson",
+    });
 
+    map.addSource("city", {
+        "type": "geojson",
+        "data": "data/city_of_helena.geojson",
+    });
+
+    map.addSource("private", {
+        "type": "geojson",
+        "data": "data/private_land.geojson",
+    });
+
+    // Add Fills
+    map.addLayer({
+        "id": "federal",
+        "type": "fill",
+        "source": "federal",
+        "layout": {},
+        "paint": {
+            "fill-color": "#darkgreen",
+            "fill-opacity": 0.1,
+        }
+    }, "Path");
+
+    map.addLayer({
+        "id": "city",
+        "type": "fill",
+        "source": "city",
+        "layout": {},
+        "paint": {
+            "fill-color": "lightgreen",
+            "fill-opacity": 0.1,
+        }
+    }, "Path");
+
+    map.addLayer({
+        "id": "private",
+        "type": "fill",
+        "source": "private",
+        "layout": {},
+        "paint": {
+            "fill-color": "steelblue",
+            "fill-opacity": 0.5,
+        }
+    }, "Path");
+
+    // Add outlines
+    map.addLayer({
+        "id": "private-outline",
+        "type": "line",
+        "source": "private",
+        "layout": {},
+        "paint": {
+            "line-color": "#FFF",
+            "line-width": 1
+        }
+        }, "Path");
+
+    // Add individual plots
+    map.addLayer({
+        'id':'anderson',
+        'type':'fill',
+        'source':{
+            'type':'geojson',
+            'data':'data/anderson.geojson'
+        },
+        'layout':{},
+        'paint':{
+            'fill-color':'steelblue',
+            'fill-opacity':0.5
+        }
+    },'Path');
+
+    map.addLayer({
+        'id':'murray',
+        'type':'fill',
+        'source':{
+            'type':'geojson',
+            'data':'data/murray.geojson'
+        },
+        'layout':{},
+        'paint':{
+            'fill-color':'orange',
+            'fill-opacity':1
+        }
+    });
+
+    // Terrain Control
+    map.addControl(
+        new maplibregl.TerrainControl({
+            source: 'maptiler3D',
+            exaggeration: 1
+        })
+    );
 });
